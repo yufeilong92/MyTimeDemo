@@ -40,18 +40,25 @@ public class MainActivity extends AppCompatActivity {
         long longNow = decimal.longValue();
         long temp = 0;
         Log.e(TAG, "getStringTimeCha: "+longNow );
-       if (longNow<60) {
-         result= "刚刚";
-       }else if ((temp = longNow/60)<60){
-           result=temp+"分前";
-       }else if ((temp=temp/60)<24){
-           result=temp+"小时前";
-       }else if ((temp/24)<30){
-           result=temp+"天前";
-       } else {
-           temp=temp/12;
-           result=temp+"年前";
-       }
+   /*        long s = longNow;
+        long fen = longNow / 60 ;
+        long h= longNow / 60 / 60 ;
+        long day = longNow /(60*60*24);
+        Log.e(TAG, "秒="+s+"分="+fen+"小时="+h+"天="+day );*/
+        if (longNow < 60) {
+            result = "刚刚";
+        } else if ((temp = longNow / 60) < 60) {
+            result = temp + "分前";
+        } else if ((temp = temp /60) < 24) {
+            result = temp + "小时前";
+        } else if ((temp=temp /24) < 30) {
+            result = temp + "天前";
+        }/*else if ((temp=temp/30)<12){
+            result=temp+"月前";
+        }*/ else {
+            temp = temp / 12;
+            result = temp + "年前";
+        }
        return result;
     }
 }
